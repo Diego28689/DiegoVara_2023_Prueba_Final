@@ -1,0 +1,82 @@
+@startuml
+class soldado{
+    -codigo de soldado: Int
+    -nombre : String
+    -apellidos: String
+    -graduacion : String
+
+    +getcodigo de soldado()
+    +setcodigo de soldado()
+    +getnombre()
+    +setnombre()
+    +getapellidos()
+    +setapellidos()
+    +getgraduacion()
+    +setgraduacion()
+   }
+
+   class compañias{
+      -numero de compañia :Int
+      - actividad principal : String
+
+     -getnumero de compañia()
+     -setnumero de compañia()
+     -getactividad principal()
+     -setactividad principal()
+
+      
+  }
+     class cuartel{
+     -codigo de cuartel: Int
+     -nombre: String
+     -Ubicacion : String
+      
+    +getcodigo de cuartel()
+    +setcodigo de cuartel()
+    +getnombre()
+    +setnombre()
+    +getubicacion()
+    +set ubicacion()
+
+
+ }
+ 
+    class cuerpos  {
+
+     -Infanteria : String
+     -Artilleria : String
+     - Armada   : String
+
+    +getInfanteria()
+    +setInfanteria()
+    +setArmada ()nfanteria()
+    +getArtilleria()
+    +setArtilleria()
+    +getArmada()
+   
+  }
+
+   class Servicios {
+    -guardias : Int
+    -imaginarias : String
+    -cuarteleros : String
+
+    +getguardias()
+    +setguardias()
+    +getimaginarias()
+    +setimaginarias()
+    +getcuarteleros()
+    +setcuartleros()
+
+}
+ 
+soldado "1"..cuerpos  :pertenece
+soldado "1"..compañias :pertenece
+compañia "1" *..soldado :realiza
+soldado "1" *..servicios: puede hacer
+servicios "1" *..soldado: puede ser realizado
+soldados"1" *..cuarteles: destinado
+compañia "1" *..cuarteles: ubicada
+cuartel "1" *..compañias :ubicada
+soldado"1"..cuartel :puede estar
+@enduml
